@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hjh.springboot_ems.entity.User">
+    <resultMap id="empResult" type="com.hjh.springboot_ems.entity.Employee">
+        <id property="id" column="id"/>
+        <result property="userName" column="user_name"></result>
+        <result property="salary" column="salary"></result>
+        <result property="sex" column="sex"></result>
+    </resultMap>
+    <select id="getEmpList" resultType="com.hjh.springboot_ems.entity.Employee">
+        select id,user_name,salary,sex from employee
+    </select>
+    <delete id="deleteEmpById" parameterType="Integer">
+        delete from employee where id = #{id}
+    </delete>
+    <update id="updataEmpById" parameterType="com.hjh.springboot_ems.entity.Employee">
+        update employee set (user_name=#{userName},salary=#{salary},sex=#{sex})
+    </update>
+</mapper>

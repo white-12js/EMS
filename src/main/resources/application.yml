@@ -1,0 +1,23 @@
+spring:
+  mvc:
+    view:
+      suffix:  .jsp
+      prefix:  /
+
+  application:
+    name:  ems #微服务的服务名
+
+  #dataSource
+  datasource:
+    url:  jdbc:mysql://localhost:3306/ems
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+
+#server:
+#  servlet:
+#    context-path:  /ems #项目名
+
+#指定映射文件路径
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

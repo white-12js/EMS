@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hjh.springboot_ems.mapper.UserMapper">
+    <resultMap id="userResult" type="com.hjh.springboot_ems.entity.User">
+        <id property="id" column="id"></id>
+        <result property="userName" column="user_name"></result>
+        <result property="userPassword" column="user_password"></result>
+    </resultMap>
+    <select id="login" resultType="int">
+        select
+            count(id)
+        from
+            user
+        where
+            user_name=#{userName} and user_password=#{userPassword}
+    </select>
+    <select id="getUserById" parameterType="Integer" resultMap="userResult">
+        select * from user where id = #{id}
+    </select>
+</mapper>
